@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=2 format=3 uid="uid://bh5mdk1bou4av"]
+
+[ext_resource type="Script" uid="uid://bx8bvny5qetxa" path="res://script/Class/quest_data.gd" id="1_gsjn5"]
+
+[resource]
+script = ExtResource("1_gsjn5")
+type = 1
+act = 1
+start_day = 1
+deadline_day = 365
+required_affection = {}
+required_player_attr = {}
+next_quest_card_id = ""
+full_success_rewards = Array[String]([])
+required_character_id = ""
+required_location_id = ""
+required_time_slot = "evening"
+id = ""
+name = ""
+description = ""
+tags = Array[String]([])
+metadata/_custom_type_script = "uid://bx8bvny5qetxa"

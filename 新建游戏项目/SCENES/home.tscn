@@ -1,0 +1,146 @@
+[gd_scene load_steps=14 format=3 uid="uid://dyvjx4es3po"]
+
+[ext_resource type="Script" uid="uid://o6grtd4vjxkf" path="res://script/Scene/home_scene.gd" id="1_mg4ta"]
+[ext_resource type="Texture2D" uid="uid://cukqnrh0d43wn" path="res://image/scene/Gemini_Generated_Image_5n80625n80625n80.png" id="2_lxra0"]
+[ext_resource type="Script" uid="uid://nsgnste7k2wd" path="res://script/Manager/timelabel_update.gd" id="3_mg4ta"]
+[ext_resource type="Script" uid="uid://1s3orhk07osl" path="res://script/Scene/room_interaction.gd" id="4_lxra0"]
+[ext_resource type="PackedScene" uid="uid://b6q6wyoxqiuj2" path="res://SCENES/sleep_confirm_ui.tscn" id="5_mg4ta"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u6wlv"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_lxra0"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_mg4ta"]
+font_size = 36
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhjv"]
+size = Vector2(558.311, 266.336)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxra0"]
+size = Vector2(211, 372.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg4ta"]
+size = Vector2(177, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvo1b"]
+size = Vector2(339.554, 383.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6wlv"]
+size = Vector2(268.016, 322.943)
+
+[node name="Home_Scene" type="Node2D"]
+script = ExtResource("1_mg4ta")
+metadata/_custom_type_script = "uid://dh0ek5t56gdff"
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_lxra0")
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -32.0
+offset_top = 33.0
+offset_right = 38.0
+offset_bottom = 73.0
+mouse_force_pass_scroll_events = false
+script = ExtResource("3_mg4ta")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = -404.0
+offset_right = 609.0
+offset_bottom = -304.0
+
+[node name="MonthLabel" type="Label" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "9月"
+label_settings = SubResource("LabelSettings_u6wlv")
+
+[node name="DayLabel" type="Label" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "1日"
+label_settings = SubResource("LabelSettings_lxra0")
+
+[node name="SeasonLabel" type="Label" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "秋季"
+label_settings = SubResource("LabelSettings_mg4ta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = -124.0
+offset_top = -245.0
+offset_right = -4.0
+offset_bottom = -214.0
+
+[node name="AdvanceButton" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "时间推进"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.01, 0.87)
+metadata/_edit_lock_ = true
+
+[node name="Furniture" type="Node2D" parent="."]
+
+[node name="bed" type="Area2D" parent="Furniture"]
+script = ExtResource("4_lxra0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/bed"]
+position = Vector2(102, 238)
+rotation = 0.0360739
+shape = SubResource("RectangleShape2D_jyhjv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/bed"]
+
+[node name="weapon_rack" type="Area2D" parent="Furniture"]
+script = ExtResource("4_lxra0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/weapon_rack"]
+position = Vector2(47, -142)
+shape = SubResource("RectangleShape2D_lxra0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/weapon_rack"]
+
+[node name="Potion_Cabinet" type="Area2D" parent="Furniture"]
+script = ExtResource("4_lxra0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Potion_Cabinet"]
+position = Vector2(-416, 188)
+shape = SubResource("RectangleShape2D_mg4ta")
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Potion_Cabinet"]
+
+[node name="book_shelf" type="Area2D" parent="Furniture"]
+script = ExtResource("4_lxra0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/book_shelf"]
+position = Vector2(337, -156)
+rotation = 0.00942661
+shape = SubResource("RectangleShape2D_rvo1b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/book_shelf"]
+
+[node name="window" type="Area2D" parent="Furniture"]
+script = ExtResource("4_lxra0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/window"]
+position = Vector2(-228.766, -184.328)
+rotation = -0.00487755
+shape = SubResource("RectangleShape2D_u6wlv")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/window"]
+
+[node name="SleepConfirmUI" parent="." instance=ExtResource("5_mg4ta")]

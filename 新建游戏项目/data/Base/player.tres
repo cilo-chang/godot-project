@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://dmg4knndls2hp"]
+
+[ext_resource type="Script" uid="uid://d1bulx1gbmuf1" path="res://script/Class/player_data.gd" id="1_cy2cw"]
+
+[resource]
+script = ExtResource("1_cy2cw")
+strength = 5
+agility = 5
+magic = 5
+stamina = 5
+energy = 100
+charm = 5
+eloquence = 5
+influence = 5
+id = ""
+name = ""
+description = ""
+tags = Array[String]([])
+metadata/_custom_type_script = "uid://d1bulx1gbmuf1"

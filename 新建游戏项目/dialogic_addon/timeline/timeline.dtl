@@ -1,0 +1,4 @@
+<Empty Text Event>
+join  center
+-  | [if {} == ""]
+-  | [if {0.0} == ""]

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ActionCardData" load_steps=2 format=3 uid="uid://bve0fs35ggxjw"]
+
+[ext_resource type="Script" uid="uid://bravv87bqyg0r" path="res://script/Class/action_card_data.gd" id="1_18xrm"]
+
+[resource]
+script = ExtResource("1_18xrm")
+action_type = 0
+rarity = 0
+energy_cost = 1
+duration_periods = 1
+category = 1
+battle_owner = 0
+battle_effect = 0
+non_battle_type = 0
+quest_subtype = 0
+item_subtype = 0
+assist_subtype = 0
+cost_mana = 0
+cost_chi = 0
+cost_action = 1
+distance_min = 1
+distance_max = 5
+damage_value = 10
+block_level_bonus = 0
+action_color = 0
+efficiency_bonus = 1.5
+required_affection = {}
+unlocks = Array[String]([])
+id = ""
+name = ""
+description = ""
+tags = Array[String]([])
+metadata/_custom_type_script = "uid://bravv87bqyg0r"

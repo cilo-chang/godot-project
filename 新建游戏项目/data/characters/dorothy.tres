@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=3 format=3 uid="uid://cp026xfmggttg"]
+
+[ext_resource type="Script" uid="uid://528jpxplsjw1" path="res://data/characters/character_data.gd" id="1_gpwc0"]
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_gpwc0"]
+
+[resource]
+script = ExtResource("1_gpwc0")
+base_affection = 30
+affection_events = Array[Resource]([SubResource("InputEventJoypadMotion_gpwc0"), null])
+awakening_card_id = ""
+liked_gifts = Array[String]([])
+social_position = "neutral"
+id = ""
+name = ""
+description = ""
+tags = Array[String]([])
+metadata/_custom_type_script = "uid://528jpxplsjw1"

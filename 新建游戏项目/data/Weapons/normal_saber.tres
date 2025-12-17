@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://dxllnvj2u06q7"]
+
+[ext_resource type="Script" uid="uid://cgkd1g3ftd6b1" path="res://script/Class/weapon_data.gd" id="1_1qdeh"]
+
+[resource]
+script = ExtResource("1_1qdeh")
+size = 0
+melee_bonus = 0.0
+required_strength = 0
+required_level = 1
+id = ""
+name = ""
+description = ""
+tags = Array[String]([])
+metadata/_custom_type_script = "uid://cgkd1g3ftd6b1"
