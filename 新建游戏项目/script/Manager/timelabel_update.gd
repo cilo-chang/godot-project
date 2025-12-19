@@ -13,9 +13,7 @@ func _ready():
 	time_manager.day_advanced.connect(_on_time_updated)
 	time_manager.time_advanced.connect(_on_time_updated)
 	time_manager.act_changed.connect(_on_time_updated)
-	
-	# 绑定按钮事件
-	advance_button.pressed.connect(_on_advance_button_pressed)
+
 	
 	# 初始化UI
 	update_ui()
@@ -33,8 +31,4 @@ func update_ui():
 	# 拆分显示（也可直接用get_formatted_date()拼接）
 	month_label.text = "%d月" % time_manager.get_month()
 	day_label.text = "%d日" % time_manager.get_day_of_month()
-	season_label.text = time_manager.get_season_name()  # 调用函数获取文字
-
-# 推进一天
-func _on_advance_button_pressed():
-	time_manager.advance_day()
+	season_label.text = time_manager.get_season_name() # 调用函数获取文字

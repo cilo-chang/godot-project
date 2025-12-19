@@ -3,12 +3,12 @@ extends Node
 
 # --- 1. 数据存储细分 ---
 # 将原本的大杂烩 cards 拆分，但保留一个总索引 all_cards 方便根据ID查找任意卡
-var all_cards: Dictionary = {}         # 总索引：ID -> Resource
-var combat_cards: Dictionary = {}      # 战斗卡牌
-var action_cards: Dictionary = {}      # 行动卡牌
-var life_skill_cards: Dictionary = {}  # 生活职业卡牌
-var quest_cards:Dictionary={}  #任务卡牌
-var explore_card:Dictionary={} #探索卡牌
+var all_cards: Dictionary = {} # 总索引：ID -> Resource
+var combat_cards: Dictionary = {} # 战斗卡牌
+var action_cards: Dictionary = {} # 行动卡牌
+var life_skill_cards: Dictionary = {} # 生活职业卡牌
+var quest_cards: Dictionary = {} # 任务卡牌
+var explore_card: Dictionary = {} # 探索卡牌
 
 # 其他保持不变
 var characters: Dictionary = {}
@@ -25,7 +25,7 @@ func _ready():
 func load_all_static_data():
 	# 1. 加载所有卡牌到各自的字典
 	# 注意：这里我们加载大的父文件夹，并在加载函数里根据 class_name 自动分拣
-	_load_and_sort_cards("res://data/cards/") 
+	_load_and_sort_cards("res://data/cards/")
 	
 	# 2. 加载其他数据
 	_load_folder_recursive("res://data/characters/", characters)
@@ -55,7 +55,7 @@ func _load_and_sort_cards(path: String):
 			combat_cards[id] = card_res
 		elif card_res is ActionCardData:
 			action_cards[id] = card_res
-		elif card_res is LifeSkillCardData: 
+		elif card_res is LifeSkillCardData:
 			life_skill_cards[id] = card_res
 		else:
 			# 未知类型的卡牌，但也存入了 all_cards

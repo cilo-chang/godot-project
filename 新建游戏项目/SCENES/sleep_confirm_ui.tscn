@@ -13,10 +13,10 @@ script = ExtResource("1_yyr20")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -11.0
-offset_top = -20.0
-offset_right = 1174.0
-offset_bottom = 677.0
+offset_left = -27.0
+offset_top = -34.0
+offset_right = 1273.0
+offset_bottom = 716.0
 color = Color(0.0589993, 0.0615072, 0.0577625, 0.411765)
 
 [node name="Panel" type="Panel" parent="."]
