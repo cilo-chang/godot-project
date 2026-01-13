@@ -32,6 +32,9 @@ const CATEGORY_MAP = {
 # 排序分类按钮顺序
 const CATEGORY_ORDER = ["全部", "重要物品", "消耗品", "收藏品", "礼物"]
 
+# 新增：主分页枚举
+enum MainTab {ATTRIBUTES = 0, INVENTORY = 1, ACTION_CARDS = 2}
+
 func _ready():
 	# 确保中心点在中间，以便缩放动画从中心开始
 	panel.pivot_offset = panel.size / 2
@@ -93,8 +96,14 @@ func _setup_ui():
 	var inv_btn = Button.new()
 	inv_btn.text = "背包"
 	inv_btn.name = "BtnInventory"
-	inv_btn.pressed.connect(_on_main_tab_changed.bind(1))
+	inv_btn.pressed.connect(_on_main_tab_changed.bind(MainTab.INVENTORY))
 	main_tab_container.add_child(inv_btn)
+	
+	var action_btn = Button.new()
+	action_btn.text = "行动卡牌"
+	action_btn.name = "BtnActionCards"
+	action_btn.pressed.connect(_on_main_tab_changed.bind(MainTab.ACTION_CARDS))
+	main_tab_container.add_child(action_btn)
 	
 	main_tab_container.hide()
 	
@@ -165,6 +174,61 @@ func open(title: String, allowed_types: Array):
 		scroll_container.offset_top = 80
 		refresh_items()
 
+func _show_action_cards_view():
+	attributes_panel.hide()
+	item_grid.get_parent().show()
+	category_container.hide() # 行动卡暂时没有二级分类tab，或者以后加
+	scroll_container.offset_top = 110 # 调整高度
+	
+	_update_tab_visuals()
+	_refresh_action_cards()
+
+func _refresh_action_cards():
+	# 1. 清除现有物品
+	for child in item_grid.get_children():
+		child.queue_free()
+	
+	# 2. 获取行动卡牌数据
+	var action_cards = gamemanager.available_action_cards
+	
+	if action_cards.is_empty():
+		empty_label.text = "暂无行动卡牌"
+		empty_label.show()
+	else:
+		empty_label.hide()
+		for card in action_cards:
+			_add_action_card_slot(card)
+
+func _add_action_card_slot(card_data: ActionCardData):
+	var slot = Button.new()
+	slot.custom_minimum_size = Vector2(100, 100) # 稍微大一点
+	slot.text = card_data.name
+	slot.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	slot.clip_text = true
+	
+	# 构建显示文本
+	var display_text = card_data.name + "\n"
+	display_text += "精力: %d" % card_data.energy_cost
+	if card_data.effect_description != "":
+		display_text += "\n" + card_data.effect_description
+	
+	slot.text = display_text
+	
+	# Tooltip 详细信息
+	var tooltip = "名称: %s\n类型: %s\n精力消耗: %d\n占用时段: %d\n" % [
+		card_data.name,
+		ActionCardData.ActionType.keys()[card_data.action_type],
+		card_data.energy_cost,
+		card_data.duration_periods
+	]
+	if card_data.description:
+		tooltip += "描述: %s\n" % card_data.description
+	if card_data.effect_description:
+		tooltip += "效果: %s" % card_data.effect_description
+		
+	slot.tooltip_text = tooltip
+	item_grid.add_child(slot)
+
 func _on_close_pressed():
 	# 动画：关闭
 	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
@@ -177,8 +241,9 @@ func _update_tab_visuals():
 	# 1. 更新主分页按钮
 	for child in main_tab_container.get_children():
 		if child is Button:
-			if (child.name == "BtnAttributes" and active_tab_index == 0) or \
-			   (child.name == "BtnInventory" and active_tab_index == 1):
+			if (child.name == "BtnAttributes" and active_tab_index == MainTab.ATTRIBUTES) or \
+			   (child.name == "BtnInventory" and active_tab_index == MainTab.INVENTORY) or \
+			   (child.name == "BtnActionCards" and active_tab_index == MainTab.ACTION_CARDS):
 				child.modulate = Color(1, 1, 0) # 高亮黄色
 				child.disabled = true # 禁用当前选中的按钮，防止重复点击
 			else:
@@ -208,10 +273,13 @@ func _on_main_tab_changed(index: int):
 	active_tab_index = index
 	_update_tab_visuals() # 更新视觉
 	
-	if index == 0:
-		_show_attributes_view()
-	else:
-		_show_inventory_view(true)
+	match index:
+		MainTab.ATTRIBUTES:
+			_show_attributes_view()
+		MainTab.INVENTORY:
+			_show_inventory_view(true)
+		MainTab.ACTION_CARDS:
+			_show_action_cards_view()
 
 func _show_attributes_view():
 	item_grid.get_parent().hide()
@@ -319,8 +387,10 @@ func refresh_items():
 			_add_item_slot(item_data, stack_items[item_id])
 			count += 1
 			
+			
 	# 空状态检查
 	if count == 0:
+		empty_label.text = "背包里空空如也..."
 		empty_label.show()
 	else:
 		empty_label.hide()

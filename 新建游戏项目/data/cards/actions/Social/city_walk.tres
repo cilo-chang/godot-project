@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SocialActionCardData" load_steps=2 format=3 uid="uid://dm84h1b6si0sm"]
+
+[ext_resource type="Script" uid="uid://be6eo8lor7xpa" path="res://script/Class/ActionCards/SocialActionCardData.gd" id="1_e8hfm"]
+
+[resource]
+script = ExtResource("1_e8hfm")
+charm_gain = 0
+eloquence_gain = 0
+influence_gain = 0
+social_scene_tier = 1
+action_type = 1
+energy_cost = 1
+duration_periods = 1
+efficiency_bonus = 1.5
+effect_description = "我承认这并非传统的社交行为，但出去透透气，总比呆在家里好不是吗？"
+unlocks = Array[String]([])
+unique = false
+rarity = 0
+id = "四处走走"
+name = ""
+description = ""
+tags = Array[String]([])
+metadata/_custom_type_script = "uid://bravv87bqyg0r"

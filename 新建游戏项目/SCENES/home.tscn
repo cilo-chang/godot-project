@@ -162,6 +162,7 @@ offset_right = -592.0
 offset_bottom = -355.0
 
 [node name="StorageUI" parent="." instance=ExtResource("6_storage")]
+visible = false
 offset_left = -3.0
 offset_top = 72.0
 offset_right = -3.0

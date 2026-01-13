@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="StudyActionCardData" load_steps=2 format=3 uid="uid://b6u5ija2cpm40"]
+
+[ext_resource type="Script" uid="uid://cj7iamluiyqpk" path="res://script/Class/ActionCards/StudyActionCardData.gd" id="1_ybq6q"]
+
+[resource]
+script = ExtResource("1_ybq6q")
+target_skill_id = ""
+skill_proficiency_gain = 10
+attribute_growth_points = 5
+linked_book_id = ""
+action_type = 2
+energy_cost = 1
+duration_periods = 1
+efficiency_bonus = 1.5
+effect_description = "锻炼身体也是一种需要进行钻研的行为呢。"
+unlocks = Array[String]([])
+unique = false
+rarity = 0
+id = "健身I"
+name = ""
+description = ""
+tags = Array[String]([])
+metadata/_custom_type_script = "uid://bravv87bqyg0r"

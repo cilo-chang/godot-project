@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="QuestActionCardData" load_steps=2 format=3 uid="uid://dd8aerkydpdtc"]
+
+[ext_resource type="Script" uid="uid://ti0osmd8s3kv" path="res://script/Class/ActionCards/QuestActionCardData.gd" id="1_pfi66"]
+
+[resource]
+script = ExtResource("1_pfi66")
+quest_type = 0
+quest_id = ""
+quest_stage_id = ""
+required_location_id = ""
+action_type = 4
+energy_cost = 1
+duration_periods = 1
+efficiency_bonus = 1.5
+effect_description = "门外发生了一些事情，去看看吧。"
+unlocks = Array[String]([])
+unique = false
+rarity = 2
+id = "来客"
+name = ""
+description = ""
+tags = Array[String]([])
+metadata/_custom_type_script = "uid://bravv87bqyg0r"

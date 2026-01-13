@@ -58,13 +58,20 @@ func load_initial_action_cards():
 	# FIX: 增加 null 检查，防止数据库没加载导致崩溃
 	if not db.all_cards: return
 
-	var entertain_res = db.all_cards.get("entertain_read_book")
-	var first_quest_res = db.all_cards.get("main_act1_step1")
+	var initial_ids = [
+		"act_ent_rest",
+		"act_soc_chat",
+		"act_stu_read",
+		"act_exp_walk",
+		"act_quest_investigate"
+	]
 	
-	if entertain_res:
-		add_action_card(entertain_res.duplicate())
-	if first_quest_res:
-		add_action_card(first_quest_res.duplicate())
+	for id in initial_ids:
+		var card_res = db.all_cards.get(id)
+		if card_res:
+			add_action_card(card_res.duplicate())
+		else:
+			print("Warning: Initial card %s not found in Database" % id)
 
 # --- 核心逻辑：战斗 ---
 func build_battle_deck(main_char_id: String, assist_char_ids: Array[String] = []):

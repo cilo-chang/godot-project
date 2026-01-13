@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ExploreActionCardData" load_steps=2 format=3 uid="uid://b15svd6orjp3l"]
+
+[ext_resource type="Script" uid="uid://bpa47cc4wicjn" path="res://script/Class/ActionCards/ExploreActionCardData.gd" id="1_mkr1r"]
+
+[resource]
+script = ExtResource("1_mkr1r")
+is_long_exploration = false
+target_location_ids = Array[String]([])
+action_type = 3
+energy_cost = 30
+duration_periods = 1
+efficiency_bonus = 1.5
+effect_description = "对周边地区进行自由探索。"
+unlocks = Array[String]([])
+unique = false
+rarity = 1
+id = "探索"
+name = ""
+description = ""
+tags = Array[String]([])
+metadata/_custom_type_script = "uid://bravv87bqyg0r"

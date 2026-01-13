@@ -1,32 +1,20 @@
-[gd_resource type="Resource" script_class="ActionCardData" load_steps=2 format=3 uid="uid://bve0fs35ggxjw"]
+[gd_resource type="Resource" script_class="EntertainmentActionCardData" load_steps=2 format=3 uid="uid://bve0fs35ggxjw"]
 
-[ext_resource type="Script" uid="uid://bravv87bqyg0r" path="res://script/Class/action_card_data.gd" id="1_18xrm"]
+[ext_resource type="Script" uid="uid://beqgjnpr6wqap" path="res://script/Class/ActionCards/EntertainmentActionCardData.gd" id="1_18xrm"]
 
 [resource]
 script = ExtResource("1_18xrm")
+energy_recovery = 20
+mood_boost = 0
 action_type = 0
-rarity = 0
-energy_cost = 1
+energy_cost = 0
 duration_periods = 1
-category = 1
-battle_owner = 0
-battle_effect = 0
-non_battle_type = 0
-quest_subtype = 0
-item_subtype = 0
-assist_subtype = 0
-cost_mana = 0
-cost_chi = 0
-cost_action = 1
-distance_min = 1
-distance_max = 5
-damage_value = 10
-block_level_bonus = 0
-action_color = 0
 efficiency_bonus = 1.5
-required_affection = {}
+effect_description = "只是翻翻书，什么也不想，何尝不是美事一件。"
 unlocks = Array[String]([])
-id = ""
+unique = false
+rarity = 0
+id = "悠闲阅读"
 name = ""
 description = ""
 tags = Array[String]([])

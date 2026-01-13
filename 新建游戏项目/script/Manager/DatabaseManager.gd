@@ -55,6 +55,7 @@ func _load_and_sort_cards(path: String):
 			combat_cards[id] = card_res
 		elif card_res is ActionCardData:
 			action_cards[id] = card_res
+			print("DEBUG: Included Action Card: %s (ID: %s)" % [card_res.name, id])
 		elif card_res is LifeSkillCardData:
 			life_skill_cards[id] = card_res
 		else:
