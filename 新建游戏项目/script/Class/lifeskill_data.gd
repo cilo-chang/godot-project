@@ -30,7 +30,7 @@ var current_xp: int = 0
 # --- 4. 社交属性 (兴趣矩阵) ---
 # 对应文档表格 
 # 对方对该技能的兴趣程度
-enum InterestLevel { INDIFFERENT, INTERESTED, ENTHUSIASTIC } # 兴趣缺缺, 颇有兴趣, 十分热衷
+enum InterestLevel {INDIFFERENT, INTERESTED, ENTHUSIASTIC} # 兴趣缺缺, 颇有兴趣, 十分热衷
 
 # 社交收益矩阵 (好感度加成)
 # 这是一个嵌套数组，或者简单的硬编码逻辑，为了配置灵活，这里使用导出变量
@@ -40,9 +40,9 @@ enum InterestLevel { INDIFFERENT, INTERESTED, ENTHUSIASTIC } # 兴趣缺缺, 颇
 # 精通: [3, 7, 10]
 # 大师: [5, 10, 15]
 @export var social_bonus_table: Array[Array] = [
-	[1, 3, 5], 
-	[2, 5, 7], 
-	[3, 7, 10], 
+	[1, 3, 5],
+	[2, 5, 7],
+	[3, 7, 10],
 	[5, 10, 15]
 ]
 # --- 5. 核心逻辑函数修正 ---
@@ -62,7 +62,7 @@ func get_work_rewards() -> Dictionary:
 func add_xp(amount: int):
 	# FIX: 大师级的判定，使用基类 Rarity 枚举的最大值 (通常是 PRISMATIC=3)
 	if self.rarity == CardRarity.LEGENDARY:
-		return 
+		return
 
 	current_xp += amount
 	
@@ -73,13 +73,13 @@ func add_xp(amount: int):
 
 func _level_up():
 	# 检查是否已达到最高级
-	if self.rarity == CardRarity.LEGENDARY: 
+	if self.rarity == CardRarity.LEGENDARY:
 		return
 
 	current_xp -= xp_thresholds[self.rarity]
 	
 	# FIX: 升级操作 - 直接修改基类的 rarity 属性
-	self.rarity += 1 
+	self.rarity += 1
 	
 	print("生活技能 [%s] 升级了！当前等级: %d" % [id, self.rarity])
 	

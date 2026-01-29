@@ -12,7 +12,7 @@ config_version=5
 
 config/name="新建游戏项目"
 run/main_scene="uid://dyvjx4es3po"
-config/features=PackedStringArray("4.4", "Mobile")
+config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://image/scene/icon.svg"
 
 [autoload]
@@ -25,10 +25,14 @@ gamemanager="*res://script/Manager/game_manager.gd"
 [dialogic]
 
 directories/dch_directory={
-"character": "res://dialogic_addon/character/character.dch"
+"Agina": "res://dialogic_addon/character/Agina.dch",
+"Albert": "res://dialogic_addon/character/Albert.dch",
+"Ciro": "res://dialogic_addon/character/Ciro.dch",
+"Verna": "res://dialogic_addon/character/Verna.dch",
+"characters/Albert": "res://data/characters/Albert.dch"
 }
 directories/dtl_directory={
-"timeline": "res://dialogic_addon/timeline/timeline.dtl"
+"the initial past": "res://dialogic_addon/timeline/the initial past.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true

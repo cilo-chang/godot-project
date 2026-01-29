@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl8108cr3836g"]
+
+[ext_resource type="Script" uid="uid://cfg8cbcxsvt56" path="res://script/Scene/start_scene.gd" id="1_5x4ps"]
+[ext_resource type="Texture2D" uid="uid://cukqnrh0d43wn" path="res://image/scene/Gemini_Generated_Image_5n80625n80625n80.png" id="1_fylh0"]
+[ext_resource type="Texture2D" uid="uid://e02g1typesyt" path="res://image/scene/Gemini_Generated_Image_k7ojvok7ojvok7oj.png" id="2_5x4ps"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5x4ps")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 1149.0
+offset_bottom = 719.0
+texture = ExtResource("1_fylh0")
+expand_mode = 1
+
+[node name="logo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 32.0
+offset_right = 1174.0
+offset_bottom = 293.0
+texture = ExtResource("2_5x4ps")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 323.0
+offset_right = 1045.0
+offset_bottom = 605.0
+theme_override_constants/separation = 20
+
+[node name="start" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "start"
+
+[node name="continue" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "continue"
+
+[node name="collection" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "collection"
+
+[node name="exit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "exit"
+
+[node name="version" type="Label" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 607.0
+offset_right = 1116.0
+offset_bottom = 639.0
+text = "version demo v0.1"
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/collection" to="." method="_on_collection_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

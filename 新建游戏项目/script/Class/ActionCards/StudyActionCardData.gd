@@ -8,6 +8,7 @@ extends ActionCardData
 @export var skill_proficiency_gain: int = 10 # 技能熟练累积值提升
 @export var attribute_growth_points: int = 5 # 基础属性(力量/灵巧/魔力)增长进度提升
 @export var linked_book_id: String = "" # 关联书籍ID (如果是读书行动)
+@export var money_cost: int = 0 # 金钱消耗
 
 func _init():
 	action_type = ActionType.STUDY

@@ -10,22 +10,12 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "New portrait",
+&"default_portrait": "",
 &"description": "",
-&"display_name": "character",
+&"display_name": "Albert",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
-&"portraits": {
-"New portrait": {
-"export_overrides": {
-"image": "\"res://image/scene/icon.svg\""
-},
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
-"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
-}
-},
+&"portraits": {},
 &"scale": 1.0
 }
